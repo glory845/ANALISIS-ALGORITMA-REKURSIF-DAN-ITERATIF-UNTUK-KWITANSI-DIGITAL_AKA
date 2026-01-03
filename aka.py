@@ -1,3 +1,8 @@
+import matplotlib
+matplotlib.use("Agg")
+
+import matplotlib.pyplot as plt
+
 from flask import Flask, render_template, request
 import time
 
@@ -154,7 +159,26 @@ def index():
                 terbilang_iteratif(nilai)
             waktu_iteratif.append((time.perf_counter() - start) / ITERASI)
 
-        # Grafik dinonaktifkan — tidak menghasilkan file gambar
+        # =====================
+        # MEMBUAT GRAFIK TITIK
+        # =====================
+        plt.figure()
+
+        plt.plot(ukuran_input, waktu_rekursif,
+                marker='o', linestyle='', label='Rekursif')
+
+        plt.plot(ukuran_input, waktu_iteratif,
+                marker='o', linestyle='', label='Iteratif')
+
+        plt.title("Perbandingan Waktu Eksekusi Rekursif vs Iteratif")
+        plt.xlabel("Ukuran Input")
+        plt.ylabel("Waktu Eksekusi (detik)")
+        plt.legend()
+        plt.grid(True)
+
+        plt.savefig("static/grafik.png")
+        plt.close()
+
 
         waktu_rek = waktu_rekursif[-1]
         waktu_iter = waktu_iteratif[-1]
