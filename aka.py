@@ -11,9 +11,9 @@ app = Flask(__name__, template_folder="front")
 kata = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan",
     "Sepuluh", "Sebelas"]
 
-# =====================
-# TERBILANG REKURSIF (1 – TRILIUN)
-# =====================
+
+# Fungsi Rekursif
+
 def terbilang_rekursif(n):
     if n < 12:
         return kata[n]
@@ -65,9 +65,8 @@ def terbilang_rekursif(n):
     return "Angka Terlalu Besar"
 
 
-# =====================
-# TERBILANG ITERATIF (1 – TRILIUN)
-# =====================
+# Fungsi Iteratif
+
 def terbilang_iteratif(n):
     if n == 0:
         return "Nilai Tidak Ada"
