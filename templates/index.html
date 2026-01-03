@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kwitansi Digital – Terbilang</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 22px;
+      color: #555;
+      margin-bottom: 35px;
+    }
+
+    form {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    input[type="number"] {
+      flex: 1;
+      padding: 18px;
+      font-size: 22px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 18px 35px;
+      font-size: 22px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: #f2b8ff;
+      color: white;
+    }
+
+    button:hover {
+      background: #ff8cf4;
+    }
+
+    .hasil-box {
+      background: #f7f7f7;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 25px;
+      font-size: 24px;
+    }
+
+    .judul-hasil {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .waktu {
+      font-size: 18px;
+      color: #555;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Kwitansi Digital</h1>
+    <div class="subtitle">
+      Analisis Algoritma Rekursif dan Iteratif (Terbilang)
+    </div>
+
+    <form method="post">
+      <input
+        type="number"
+        name="angka"
+        placeholder="Masukkan nominal (0 – 1 Triliun)"
+        required
+        value="{{ request.form.angka }}"
+      >
+      <button type="submit">Proses</button>
+    </form>
+
+    {% if rek %}
+      <hr>
+
+      <p><b>Input Angka:</b> {{ request.form.angka }}</p>
+
+      <div class="hasil-box">
+        <div class="judul-hasil">Hasil Rekursif</div>
+        <div>{{ rek }} </div>
+        <div class="waktu">Waktu Eksekusi: {{ wr }} detik</div>
+      </div>
+
+      <div class="hasil-box">
+        <div class="judul-hasil">Hasil Iteratif</div>
+        <div>{{ ite }} </div>
+        <div class="waktu">Waktu Eksekusi: {{ wi }} detik</div>
+      </div>
+
+      <!-- Grafis dihapus -->
+    {% endif %}
+  </div>
+
+</body>
+</html>
