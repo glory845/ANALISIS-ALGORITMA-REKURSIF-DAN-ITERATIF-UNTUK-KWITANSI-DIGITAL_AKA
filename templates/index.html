@@ -80,6 +80,17 @@
       color: #555;
       margin-top: 8px;
     }
+
+    .grafik {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .grafik img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 
@@ -109,17 +120,22 @@
 
       <div class="hasil-box">
         <div class="judul-hasil">Hasil Rekursif</div>
-        <div>{{ rek }} </div>
+        <div>{{ rek }}</div>
         <div class="waktu">Waktu Eksekusi: {{ wr }} detik</div>
       </div>
 
       <div class="hasil-box">
         <div class="judul-hasil">Hasil Iteratif</div>
-        <div>{{ ite }} </div>
+        <div>{{ ite }}</div>
         <div class="waktu">Waktu Eksekusi: {{ wi }} detik</div>
       </div>
 
-      <!-- Grafis dihapus -->
+      <div class="grafik">
+        <h3>Grafik Perbandingan Waktu Eksekusi</h3>
+        <img src="{{ url_for('static', filename='grafik.png') }}"
+             alt="Grafik Perbandingan Rekursif dan Iteratif">
+      </div>
+
     {% endif %}
   </div>
 
