@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from flask import Flask, render_template, request
 import time
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="front")
 
 kata = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan",
     "Sepuluh", "Sebelas"]
